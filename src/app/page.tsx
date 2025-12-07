@@ -263,7 +263,7 @@ export default function Home() {
                   如需稳定访问，建议配置网络加速服务。
                 </p>
                 <a
-                  href="#"
+                  href="/guide"
                   className="inline-flex items-center text-teal-600 hover:text-teal-700 text-sm font-medium transition-colors"
                 >
                   📄 点击获取配置教程 (提取码: 8888)
