@@ -48,6 +48,6 @@ export const TOOLS_DATA: Tool[] = [
 
   { id: "notion-ai", name: "Notion AI", desc: "笔记里的AI，整理文档、改写润色。", category: "生产力", url: "https://www.notion.so", tags: ["付费", "代理"] },
   { id: "gamma", name: "Gamma", desc: "输入大纲，一键生成精美的PPT。", category: "生产力", url: "https://gamma.app", tags: ["基础免费", "代理"] },
-  { id: "notebooklm", name: "NotebookLM", desc: "Google出品，导入资料自动生成播客和摘要。", category: "播客", url: "https://notebooklm.google.com", tags: ["免费", "代理"] },
+  { id: "notebooklm", name: "NotebookLM", desc: "Google出品，导入资料自动生成播客和摘要。", category: "生产力", url: "https://notebooklm.google.com", tags: ["免费", "代理"] },
   { id: "microsoft-copilot", name: "MS Copilot", desc: "Office全家桶AI，做Excel PPT必备。", category: "生产力", url: "https://copilot.microsoft.com", tags: ["基础免费", "代理"] }
 ];
