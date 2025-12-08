@@ -45,7 +45,10 @@ export const TOOLS_DATA: Tool[] = [
   { id: "github-copilot", name: "GitHub Copilot", desc: "集成在IDE中的AI助手，实时补全代码。", category: "代码", url: "https://github.com/features/copilot", tags: ["付费", "代理"] },
   { id: "v0", name: "v0.dev", desc: "Vercel出品，用文字描述直接生成UI界面。", category: "代码", url: "https://v0.dev", tags: ["基础免费", "代理"] },
   { id: "replit", name: "Replit AI", desc: "在线编程环境，一键生成和部署应用。", category: "代码", url: "https://replit.com", tags: ["基础免费", "代理"] },
-
+  { id: "trae", name: "Trae", desc: "字节跳动的vibe-coding IDE", category: "代码", url: "https://www.trae.cn", tags: ["基础免费", "国产"] },
+  { id: "trae（海外版）", name: "Trae（海外版）", desc: "字节跳动的vibe-coding IDE", category: "代码", url: "https://www.trae.ai", tags: ["基础免费", "代理"] },
+  { id: "antigravity", name: "Antigravity", desc: "谷歌出品的编码IDE", category: "代码", url: "https://antigravity.google", tags: ["基础免费", "代理"] },
+ 
   { id: "notion-ai", name: "Notion AI", desc: "笔记里的AI，整理文档、改写润色。", category: "生产力", url: "https://www.notion.so", tags: ["付费", "代理"] },
   { id: "gamma", name: "Gamma", desc: "输入大纲，一键生成精美的PPT。", category: "生产力", url: "https://gamma.app", tags: ["基础免费", "代理"] },
   { id: "notebooklm", name: "NotebookLM", desc: "Google出品，导入资料自动生成播客和摘要。", category: "生产力", url: "https://notebooklm.google.com", tags: ["免费", "代理"] },
