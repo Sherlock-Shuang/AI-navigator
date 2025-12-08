@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, Wifi, X, BookOpen } from 'lucide-react';
+import { Search, Wifi, X, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
  
 import type { Category } from '@/data/tools';
@@ -73,7 +73,7 @@ export default function Home() {
               <h2 className="text-lg font-semibold text-slate-800 mb-4">分类</h2>
               
               {/* Desktop Sidebar */}
-              <nav className="hidden lg:block space-y-1 lg:max-h-[80vh] lg:overflow-y-auto pr-1">
+              <nav className="hidden lg:block space-y-1 pr-1">
                 {CATEGORY_LIST.map((category) => (
                   <button
                     key={category}
@@ -147,7 +147,7 @@ export default function Home() {
                     
                     <div className="flex items-center justify-between">
                       <div className="flex flex-wrap gap-2">
-                        {tool.tags.map((tag) => (
+                        {tool.tags.filter((t) => !(t === 'Proxy' || t === '代理')).map((tag) => (
                           <span
                             key={tag}
                             className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
@@ -173,8 +173,6 @@ export default function Home() {
                               ? '付费'
                               : tag === 'Freemium'
                               ? '基础免费'
-                              : tag === 'Proxy'
-                              ? '代理'
                               : tag}
                           </span>
                         ))}
@@ -236,8 +234,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <BookOpen className="w-4 h-4 mr-1" />
-                📄 为什么无法打开部分网页？(查看解决方案)
+                📄 点击获取网络配置教程 (提取码: 8888)
               </a>
               
               <button
@@ -256,11 +253,12 @@ export default function Home() {
           <p className="text-slate-400 text-xs">© 2025 AI Navigator</p>
           <a
             href="https://ccn3midetoxm.feishu.cn/wiki/VgJyw9bdQiTkjQk4nNOcA1kCnhN"
-            className="text-slate-400 hover:text-teal-500 text-xs transition-colors"
+            className="inline-flex items-center gap-1 text-slate-400 hover:text-teal-500 text-xs transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
-            访问异常排查
+            <HelpCircle className="w-3 h-3" />
+            无法访问？查看解决方案
           </a>
         </div>
       </footer>
