@@ -10,7 +10,7 @@ import { TOOLS_DATA } from '@/data/tools';
 
 const categoryLabels: Record<Category, string> = {
   Search: 'AI搜索',
-  Agent: '智能体',
+  Agent: '助手',
   Chat: '对话聊天',
   Learning: '学习/论文',
   Coding: '编程IDE',
@@ -33,11 +33,33 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<'全部' | Category>("全部");
   const [showModal, setShowModal] = useState(false);
 
+  const popularity: Record<string, number> = {
+    chatgpt: 100,
+    claude: 95,
+    midjourney: 90,
+    deepseek: 88,
+    cursor: 85,
+    gemini: 84,
+    runway: 80,
+    flux: 78,
+    suno: 76,
+    udio: 75,
+    perplexity: 74,
+    kimi: 72,
+    doubao: 71,
+    jimeng: 70,
+  };
+
   const filteredTools = TOOLS_DATA.filter(tool => {
     const matchesSearch = tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          tool.desc.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "全部" || tool.category === selectedCategory;
     return matchesSearch && matchesCategory;
+  }).sort((a, b) => {
+    const sa = popularity[a.id] ?? 0;
+    const sb = popularity[b.id] ?? 0;
+    if (sa !== sb) return sb - sa;
+    return a.name.localeCompare(b.name);
   });
 
   const handleVisitTool = (url: string) => {
@@ -51,15 +73,26 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <h1 className="text-2xl font-bold text-teal-600">AI Navigator</h1>
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
-              <input
-                type="text"
-                placeholder="搜索工具..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 pr-4 py-2 w-64 border border-slate-200 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              />
+            <div className="flex items-center gap-4">
+              <a
+                href="https://ccn3midetoxm.feishu.cn/wiki/VgJyw9bdQiTkjQk4nNOcA1kCnhN"
+                className="inline-flex items-center gap-1 text-slate-500 hover:text-teal-600 text-sm transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <HelpCircle className="w-4 h-4" />
+                无法访问？查看解决方案
+              </a>
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
+                <input
+                  type="text"
+                  placeholder="搜索工具..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 pr-4 py-2 w-64 border border-slate-200 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -137,6 +170,8 @@ export default function Home() {
                         <button
                           onClick={() => setShowModal(true)}
                           className="text-slate-400 hover:text-teal-500 transition-colors"
+                          aria-label="无法访问？查看解决方案"
+                          title="无法访问？查看解决方案"
                         >
                           <Wifi className="w-4 h-4" />
                         </button>

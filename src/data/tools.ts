@@ -42,6 +42,7 @@ export const TOOLS_DATA: Tool[] = [
   { id: 'scispace', name: 'SciSpace', desc: '专门读论文的AI，能解释复杂数学公式。', category: 'Learning', url: 'https://typeset.io', tags: ['Freemium', 'Proxy'] },
   { id: 'consensus', name: 'Consensus', desc: '基于科学文献回答问题的AI，结果可查。', category: 'Learning', url: 'https://consensus.app', tags: ['Freemium', 'Proxy'] },
   { id: 'kimi', name: 'Kimi', desc: '支持超长文档上下文，读研报与长文神器。', category: 'Learning', url: 'https://kimi.moonshot.cn', tags: ['Free', 'Domestic'] },
+  { id: 'alphaxiv', name: 'AlphaXiv', desc: 'Open discussion layer for arXiv papers.', category: 'Learning', url: 'https://alphaxiv.org', tags: ['Research', 'Paper Reading', 'Community'] },
 
   // --- 👤 Digital Human ---
   { id: 'heygen', name: 'HeyGen', desc: '数字人视频生成，口型同步率极高。', category: 'DigitalHuman', url: 'https://www.heygen.com', tags: ['Paid', 'Proxy'] },
@@ -90,6 +91,7 @@ export const TOOLS_DATA: Tool[] = [
   { id: 'sora', name: 'Sora', desc: 'OpenAI王炸级视频生成（暂未公测）。', category: 'Video', url: 'https://openai.com/sora', tags: ['Paid', 'Proxy'] },
   { id: 'runway', name: 'Runway', desc: '视频AI领域的Adobe，专业级控制。', category: 'Video', url: 'https://runwayml.com', tags: ['Freemium', 'Proxy'] },
   { id: 'keling', name: '可灵 AI', desc: '国产视频生成效果第一梯队。', category: 'Video', url: 'https://keling.ai', tags: ['Freemium', 'Domestic'] },
+  { id: 'veo', name: 'Veo 3.0', desc: "Google's most capable video generation model with native audio.", category: 'Video', url: 'https://deepmind.google/models/veo/', tags: ['Google', 'Video Gen', 'Native Audio', 'Proxy'] },
 
   // --- 🎨 Image ---
   { id: 'midjourney', name: 'Midjourney', desc: '艺术审美最高的AI绘图。', category: 'Image', url: 'https://www.midjourney.com', tags: ['Paid', 'Proxy'] },
