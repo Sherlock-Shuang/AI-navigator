@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, Wifi, X } from 'lucide-react';
+import { Search, Wifi, X, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
  
 import type { Category } from '@/data/tools';
@@ -69,11 +69,11 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar / Filter Bar */}
           <aside className="lg:w-64 flex-shrink-0">
-            <div className="lg:sticky lg:top-24">
+            <div className="lg:sticky lg:top-24 lg:max-h-[80vh] lg:overflow-y-auto">
               <h2 className="text-lg font-semibold text-slate-800 mb-4">分类</h2>
               
               {/* Desktop Sidebar */}
-              <nav className="hidden lg:block space-y-1">
+              <nav className="hidden lg:block space-y-1 lg:max-h-[80vh] lg:overflow-y-auto pr-1">
                 {CATEGORY_LIST.map((category) => (
                   <button
                     key={category}
@@ -147,7 +147,7 @@ export default function Home() {
                     
                     <div className="flex items-center justify-between">
                       <div className="flex flex-wrap gap-2">
-                        {tool.tags.filter((t) => !(t === 'Proxy' || t === '代理')).map((tag) => (
+                        {tool.tags.map((tag) => (
                           <span
                             key={tag}
                             className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
@@ -173,6 +173,8 @@ export default function Home() {
                               ? '付费'
                               : tag === 'Freemium'
                               ? '基础免费'
+                              : tag === 'Proxy'
+                              ? '代理'
                               : tag}
                           </span>
                         ))}
@@ -215,7 +217,7 @@ export default function Home() {
               className="bg-white rounded-xl p-6 max-w-md w-full mx-4"
             >
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-slate-800">连接状态提示</h3>
+                <h3 className="text-lg font-semibold text-slate-800">网络连接诊断</h3>
                 <button
                   onClick={() => setShowModal(false)}
                   className="text-slate-400 hover:text-slate-600 transition-colors"
@@ -225,20 +227,18 @@ export default function Home() {
               </div>
               
               <p className="text-slate-600 mb-4">
-                该工具服务器位于海外，国内直连可能会出现响应超时或无法加载的情况。
+                检测到该工具位于海外服务器，当前网络环境可能导致访问失败或响应超时。
               </p>
               
-              <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 mb-4">
-                <p className="text-teal-800 text-sm font-medium mb-2">
-                  如需稳定访问，建议配置网络加速服务。
-                </p>
-                <a
-                  href="/guide"
-                  className="inline-flex items-center text-teal-600 hover:text-teal-700 text-sm font-medium transition-colors"
-                >
-                  📄 点击获取配置教程 (提取码: 8888)
-                </a>
-              </div>
+              <a
+                href="https://ccn3midetoxm.feishu.cn/wiki/VgJyw9bdQiTkjQk4nNOcA1kCnhN"
+                className="inline-flex items-center text-teal-600 hover:text-teal-700 underline text-sm font-medium transition-colors mb-4"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BookOpen className="w-4 h-4 mr-1" />
+                📄 为什么无法打开部分网页？(查看解决方案)
+              </a>
               
               <button
                 onClick={() => setShowModal(false)}
@@ -250,6 +250,20 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <footer className="border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
+          <p className="text-slate-400 text-xs">© 2025 AI Navigator</p>
+          <a
+            href="https://ccn3midetoxm.feishu.cn/wiki/VgJyw9bdQiTkjQk4nNOcA1kCnhN"
+            className="text-slate-400 hover:text-teal-500 text-xs transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            访问异常排查
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
