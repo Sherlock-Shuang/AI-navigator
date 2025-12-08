@@ -3,14 +3,34 @@
 import { useState } from 'react';
 import { Search, Wifi, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+ 
+import type { Category } from '@/data/tools';
 import { TOOLS_DATA } from '@/data/tools';
 
 
-const CATEGORIES = ["全部", "聊天", "视频", "图片", "音乐", "代码", "生产力"];
+const categoryLabels: Record<Category, string> = {
+  Search: 'AI搜索',
+  Agent: '智能体',
+  Chat: '对话聊天',
+  Learning: '学习/论文',
+  Coding: '编程IDE',
+  Video: '视频生成',
+  Image: '绘画设计',
+  Music: '音乐创作',
+  Dubbing: 'AI配音',
+  DigitalHuman: '数字人',
+  Model3D: '3D建模',
+  Job: '求职简历',
+  Office: '办公PPT',
+  Creation: '文案创作',
+  Efficiency: '提效工具',
+};
+
+const CATEGORY_LIST: Array<'全部' | Category> = ['全部', ...(Object.keys(categoryLabels) as Category[])];
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("全部");
+  const [selectedCategory, setSelectedCategory] = useState<'全部' | Category>("全部");
   const [showModal, setShowModal] = useState(false);
 
   const filteredTools = TOOLS_DATA.filter(tool => {
@@ -54,7 +74,7 @@ export default function Home() {
               
               {/* Desktop Sidebar */}
               <nav className="hidden lg:block space-y-1">
-                {CATEGORIES.map((category) => (
+                {CATEGORY_LIST.map((category) => (
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
@@ -64,15 +84,15 @@ export default function Home() {
                         : 'text-slate-600 hover:bg-slate-100'
                     }`}
                   >
-                    {category}
+                    {category === '全部' ? '全部' : categoryLabels[category as Category]}
                   </button>
                 ))}
               </nav>
 
               {/* Mobile Horizontal Scroll */}
-              <div className="lg:hidden overflow-x-auto pb-2">
+              <div className="lg:hidden overflow-x-auto scrollbar-hide pb-2">
                 <div className="flex space-x-2 min-w-max">
-                  {CATEGORIES.map((category) => (
+                  {CATEGORY_LIST.map((category) => (
                     <button
                       key={category}
                       onClick={() => setSelectedCategory(category)}
@@ -82,7 +102,7 @@ export default function Home() {
                           : 'text-slate-600 hover:bg-slate-100'
                       }`}
                     >
-                      {category}
+                      {category === '全部' ? '全部' : categoryLabels[category as Category]}
                     </button>
                   ))}
                 </div>
@@ -113,7 +133,7 @@ export default function Home() {
                   >
                     <div className="flex items-start justify-between mb-3">
                       <h3 className="text-lg font-semibold text-slate-800">{tool.name}</h3>
-                      {tool.tags.includes("代理") && (
+                      {(tool.tags.includes("代理") || tool.tags.includes("Proxy")) && (
                         <button
                           onClick={() => setShowModal(true)}
                           className="text-slate-400 hover:text-teal-500 transition-colors"
@@ -127,25 +147,33 @@ export default function Home() {
                     
                     <div className="flex items-center justify-between">
                       <div className="flex flex-wrap gap-2">
-                        {tool.tags.map((tag) => (
+                        {tool.tags.filter((t) => !(t === 'Proxy' || t === '代理')).map((tag) => (
                           <span
                             key={tag}
                             className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                              tag === "国产"
+                              tag === "国产" || tag === "Domestic"
                                 ? 'bg-green-100 text-green-800'
-                                : tag === "代理"
+                              : tag === "代理" || tag === "Proxy"
                                 ? 'bg-orange-100 text-orange-800'
-                                : tag === "免费"
+                              : tag === "免费" || tag === "Free"
                                 ? 'bg-blue-100 text-blue-800'
-                                : tag === "基础免费"
+                              : tag === "基础免费" || tag === "Freemium"
                                 ? 'bg-purple-100 text-purple-800'
-                                : tag === "付费"
+                              : tag === "付费" || tag === "Paid"
                                 ? 'bg-red-100 text-red-800'
                                 : 'bg-slate-100 text-slate-800'
                             }`}
                           >
-                            {tag === "国产" && "🇨🇳 "}
-                            {tag}
+                            {(tag === "国产" || tag === "Domestic") && "🇨🇳 "}
+                            {tag === 'Domestic'
+                              ? '国产'
+                              : tag === 'Free'
+                              ? '免费'
+                              : tag === 'Paid'
+                              ? '付费'
+                              : tag === 'Freemium'
+                              ? '基础免费'
+                              : tag}
                           </span>
                         ))}
                       </div>
