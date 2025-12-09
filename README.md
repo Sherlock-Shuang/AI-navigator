@@ -5,7 +5,8 @@
 ## 项目概览
 - 技术栈：Next.js 16、React 19、Tailwind CSS、Lucide React、Framer Motion
 - 主要文件：
-  - 数据与页面：`ai-navigator/src/app/page.tsx`
+  - 工具数据：`ai-navigator/src/data/tools.ts`
+  - 页面与交互：`ai-navigator/src/app/page.tsx`
   - 教程子页：`ai-navigator/src/app/guide/page.tsx`
   - 部署配置：`ai-navigator/vercel.json`
 
@@ -26,41 +27,39 @@ npm run start
 ```
 
 ## 代码结构（关键位置）
-- 工具数据源 `TOOLS_DATA`：`ai-navigator/src/app/page.tsx:16-65`
-- 分类常量 `CATEGORIES`：`ai-navigator/src/app/page.tsx:67`
-- “代理”图标触发弹窗：`ai-navigator/src/app/page.tsx:174-181`
-- 弹窗内容（包含教程链接）：`ai-navigator/src/app/page.tsx:232-282`
-- 教程子页面路由：`ai-navigator/src/app/guide/page.tsx`
+- 工具数据源 `TOOLS_DATA` 与类型 `Category`：`ai-navigator/src/data/tools.ts`
+- 分类中文映射 `categoryLabels` 与筛选/排序：`ai-navigator/src/app/page.tsx`
+- Wifi 图标触发“网络连接诊断”弹窗：`ai-navigator/src/app/page.tsx`
+- 顶部“无法访问？查看解决方案”入口：`ai-navigator/src/app/page.tsx`
+- 教程子页面路由（如需站内页）：`ai-navigator/src/app/guide/page.tsx`
 
 ## 数据更新指南
-### 1. 添加或编辑一个工具
-- 打开 `ai-navigator/src/app/page.tsx`
+### A. 添加或编辑工具（增量更新）
+- 打开 `ai-navigator/src/data/tools.ts`
 - 在 `TOOLS_DATA` 数组中新增/修改一项，字段示例：
 ```ts
-{ id: "example", name: "示例工具", desc: "一句中文简介。", category: "聊天", url: "https://example.com", tags: ["基础免费", "代理"] }
+{ id: "example", name: "示例工具", desc: "一句中文简介。", category: "Chat", url: "https://example.com", tags: ["Freemium", "Proxy"] }
 ```
 - 字段说明：
-  - `category` 必须属于 `CATEGORIES` 中的一个：`["全部", "聊天", "视频", "图片", "音乐", "代码", "生产力"]`
-  - `tags` 推荐取值：`"免费" | "付费" | "基础免费" | "代理" | "国产"`
-  - 当 `tags` 包含 `"代理"` 时，卡片右上角会显示 `Wifi` 图标，点击弹出网络指南。
+  - `category` 必须属于 15 类之一：`Search | Agent | Chat | Learning | Coding | Video | Image | Music | Dubbing | DigitalHuman | Model3D | Job | Office | Creation | Efficiency`
+  - `tags` 支持中英双写：`免费/Free`、`付费/Paid`、`基础免费/Freemium`、`代理/Proxy`、`国产/Domestic`（页面会自动映射中文徽章与颜色）
+  - 当包含 `代理/Proxy` 时，页面会隐藏“代理”文本标签，仅在卡片右上角显示可点击的 `Wifi` 图标触发“网络连接诊断”弹窗。
 
-### 2. 修改分类
-- 打开 `CATEGORIES` 常量：`ai-navigator/src/app/page.tsx:67`
-- 增加或调整分类时，确保 `TOOLS_DATA` 中 `category` 使用一致的中文命名。
+### B. 新增类别（增量更新）
+1. 在 `ai-navigator/src/data/tools.ts` 顶部的 `export type Category` 联合类型中加入新分类标识（英文）。
+2. 在 `ai-navigator/src/app/page.tsx` 的 `categoryLabels` 中为新分类添加中文展示名称。
+3. 如需让新分类的热门工具优先显示，可在 `ai-navigator/src/app/page.tsx` 的热度排序 `popularity` 映射中新增对应 `id` 的权重（分值越高越靠前）。
+4. 运行 `npm run build` 验证筛选与排序表现是否符合预期。
 
-### 3. 调整标签与样式
-- 标签的样式映射在卡片渲染处：`ai-navigator/src/app/page.tsx:186-207`
-- 如需新增标签类型，可在该位置为新标签添加对应的颜色样式分支。
+### C. 热度排序（可选）
+- 位置：`ai-navigator/src/app/page.tsx`（在筛选后进行 `.sort`）
+- 规则：先按 `popularity[id]` 从高到低排序，再按名称字典序作为次序。
+- 用途：让 ChatGPT、Claude、Midjourney 等核心工具置顶展示。
 
-## 教程页与弹窗链接
-### 1. 跳转链接位置
-- 弹窗中的教程链接位于：`ai-navigator/src/app/page.tsx:265-270`
-- 目前链接指向站内子路由：`/guide`
-
-### 2. 教程子页
-- 文件：`ai-navigator/src/app/guide/page.tsx`
-- 该页当前为空白，后续可直接在此页填充说明内容或跳转外部地址。
-- 如需改为外部链接，将弹窗中的 `href` 改为目标 URL 即可。
+## 网络排查入口与安全做法
+- 顶部入口：Header 右侧的“无法访问？查看解决方案”链接（新开页）
+- 弹窗入口：点击卡片右上角 `Wifi` 图标后，在弹窗内的教程链接（新开页）
+- 外部链接推荐：将文档放在飞书/Notion/网盘（如 `https://ccn3midetoxm.feishu.cn/wiki/VgJyw9bdQiTkjQk4nNOcA1kCnhN`），页面仅提供跳转，避免在站内放置含敏感词的 PDF。
 
 ## 部署与上线
 ### 方式 A：GitHub 自动部署（推荐）
@@ -100,7 +99,7 @@ npx vercel --prod --yes
 - 其他：`framer-motion`、`lucide-react`、`tailwindcss`
 
 ## 迭代流程建议
-1. 本地开发与自测：更新 `TOOLS_DATA` / 分类 / 教程页 → `npm run dev`
+1. 本地开发与自测：更新 `src/data/tools.ts` / 新分类类型 / `categoryLabels` → `npm run dev`
 2. 代码检查与构建：`npm run build`
 3. 提交与推送：
 ```bash

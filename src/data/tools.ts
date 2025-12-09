@@ -73,7 +73,7 @@ export const TOOLS_DATA: Tool[] = [
   // --- ✍️ Creation ---
   { id: 'notion-ai', name: 'Notion AI', desc: '在笔记里润色与扩写内容。', category: 'Creation', url: 'https://www.notion.so', tags: ['Paid', 'Proxy'] },
   { id: 'jasper', name: 'Jasper', desc: '为营销设计的文案生成工具。', category: 'Creation', url: 'https://www.jasper.ai', tags: ['Paid', 'Proxy'] },
-  { id: 'xiaohongshu', name: '小红书文案AI', desc: '面向小红书风格的文案生成器集合。', category: 'Creation', url: '#', tags: ['Free', 'Domestic'] },
+  { id: 'xiaohongshu', name: '小红书文案AI', desc: '面向小红书风格的文案生成器集合。', category: 'Creation', url: 'https://ad.uplog.cc', tags: ['Free', 'Domestic'] },
 
   // --- ⚡ Efficiency ---
   { id: 'raycast', name: 'Raycast AI', desc: 'Mac最强启动器，快捷键唤起AI。', category: 'Efficiency', url: 'https://www.raycast.com', tags: ['Freemium', 'Proxy'] },
