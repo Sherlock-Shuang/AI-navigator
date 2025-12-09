@@ -29,13 +29,14 @@ export const TOOLS_DATA: Tool[] = [
   { id: 'perplexity', name: 'Perplexity', desc: 'AI搜索引擎，直接给出答案和引用来源。', category: 'Search', url: 'https://www.perplexity.ai', tags: ['Freemium', 'Proxy'] },
   { id: 'metaso', name: '秘塔AI搜索', desc: '无广告、无干扰的学术级AI搜索，国产良心。', category: 'Search', url: 'https://metaso.cn', tags: ['Free', 'Domestic'] },
   { id: 'genspark', name: 'Genspark', desc: '生成式搜索，把结果整合成一篇Wiki。', category: 'Search', url: 'https://genspark.ai', tags: ['Free', 'Proxy'] },
-  { id: '360ai', name: '360AI搜索', desc: '整合360智脑的搜索，对中文索引很全。', category: 'Search', url: 'https://so.360.com', tags: ['Free', 'Domestic'] },
+  { id: '360ai', name: '纳米AI', desc: '整合360智脑的搜索，对中文索引很全。', category: 'Search', url: 'https://so.360.com', tags: ['Free', 'Domestic'] },
 
   // --- 🤖 Agent ---
   { id: 'coze-cn', name: '扣子 (Coze)', desc: '字节出品，拖拽即可做自己的AI Bot。', category: 'Agent', url: 'https://www.coze.cn', tags: ['Free', 'Domestic'] },
   { id: 'dify', name: 'Dify', desc: '开源LLM应用开发平台，适合企业级Agent。', category: 'Agent', url: 'https://dify.ai', tags: ['Free', 'Domestic'] },
   { id: 'autogpt', name: 'AutoGPT', desc: '让AI自主拆解任务并执行的鼻祖项目。', category: 'Agent', url: 'https://news.agpt.co', tags: ['Free', 'Proxy'] },
   { id: 'eigent', name: 'Eigent AI', desc: '桌面端多智能体系统，可自定义AI团队。', category: 'Agent', url: 'https://eigent.ai', tags: ['Paid', 'Proxy'] },
+  { id: 'manus', name: 'Manus', desc: '通用助手（Agent），将想法转化为行动。', category: 'Agent', url: 'https://manus.so', tags: ['基础免费', 'Proxy'] },
 
   // --- 🎓 Learning ---
   { id: 'notebooklm', name: 'NotebookLM', desc: 'Google出品，导入PDF自动生成播客和摘要。', category: 'Learning', url: 'https://notebooklm.google.com', tags: ['Free', 'Proxy'] },
@@ -80,7 +81,7 @@ export const TOOLS_DATA: Tool[] = [
 
   // --- 💬 Chat ---
   { id: 'chatgpt', name: 'ChatGPT', desc: '通用对话AI。', category: 'Chat', url: 'https://chatgpt.com', tags: ['Freemium', 'Proxy'] },
-  { id: 'claude', name: 'Claude 3.5', desc: '代码与逻辑推理能力顶尖。', category: 'Chat', url: 'https://claude.ai', tags: ['Freemium', 'Proxy'] },
+  { id: 'claude', name: 'Claude', desc: '代码与逻辑推理能力顶尖。', category: 'Chat', url: 'https://claude.ai', tags: ['Freemium', 'Proxy'] },
   { id: 'gemini', name: 'Gemini', desc: 'Google原生多模态模型，生态整合能力强。', category: 'Chat', url: 'https://gemini.google.com', tags: ['Free', 'Proxy'] },
   { id: 'doubao', name: '豆包', desc: '字节出品，语音交互体验极佳。', category: 'Chat', url: 'https://doubao.com', tags: ['Free', 'Domestic'] },
   { id: 'deepseek', name: 'DeepSeek', desc: '国产数学/代码最强黑马。', category: 'Chat', url: 'https://www.deepseek.com', tags: ['Free', 'Domestic'] },
@@ -91,6 +92,7 @@ export const TOOLS_DATA: Tool[] = [
   { id: 'sora', name: 'Sora', desc: 'OpenAI王炸级视频生成（暂未公测）。', category: 'Video', url: 'https://openai.com/sora', tags: ['Paid', 'Proxy'] },
   { id: 'runway', name: 'Runway', desc: '视频AI领域的Adobe，专业级控制。', category: 'Video', url: 'https://runwayml.com', tags: ['Freemium', 'Proxy'] },
   { id: 'keling', name: '可灵 AI', desc: '国产视频生成效果第一梯队。', category: 'Video', url: 'https://keling.ai', tags: ['Freemium', 'Domestic'] },
+  { id: 'jimeng', name: '即梦AI (Jimeng AI)', desc: '字节跳动出品的图像与视频生成平台，中文理解与画面控制力强。', category: 'Video', url: 'https://jimeng.jianying.com', tags: ['基础免费', 'Domestic'] },
   { id: 'veo', name: 'Veo 3.0', desc: "Google's most capable video generation model with native audio.", category: 'Video', url: 'https://deepmind.google/models/veo/', tags: ['Google', 'Video Gen', 'Native Audio', 'Proxy'] },
 
   // --- 🎨 Image ---
