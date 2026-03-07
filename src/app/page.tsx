@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, Wifi, X, HelpCircle } from 'lucide-react';
+import { Search, Wifi, X, HelpCircle, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
  
 import type { Category } from '@/data/tools';
@@ -27,6 +27,15 @@ const categoryLabels: Record<Category, string> = {
 };
 
 const CATEGORY_LIST: Array<'全部' | Category> = ['全部', ...(Object.keys(categoryLabels) as Category[])];
+
+const getFavicon = (url: string): string => {
+  try {
+    // 通过本地接口代理，避免跨域与安全策略阻拦
+    return `/api/favicon?url=${encodeURIComponent(url)}`;
+  } catch {
+    return '/globe.svg';
+  }
+};
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -74,6 +83,13 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <h1 className="text-2xl font-bold text-teal-600">AI Navigator</h1>
             <div className="flex items-center gap-4">
+              <a
+                href="/community"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-600 rounded-lg hover:bg-teal-100 transition-colors"
+              >
+                <MessageSquare className="w-4 h-4" />
+                社区论坛
+              </a>
               <a
                 href="https://ccn3midetoxm.feishu.cn/wiki/VgJyw9bdQiTkjQk4nNOcA1kCnhN"
                 className="inline-flex items-center gap-1 text-slate-500 hover:text-teal-600 text-sm transition-colors"
@@ -165,7 +181,17 @@ export default function Home() {
                     className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow"
                   >
                     <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-lg font-semibold text-slate-800">{tool.name}</h3>
+                      <div className="flex items-center gap-2">
+                        <img
+                          src={getFavicon(tool.url)}
+                          alt={tool.name}
+                          className="w-5 h-5 rounded-sm border border-slate-200"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src = '/globe.svg';
+                          }}
+                        />
+                        <h3 className="text-lg font-semibold text-slate-800">{tool.name}</h3>
+                      </div>
                       {(tool.tags.includes("代理") || tool.tags.includes("Proxy")) && (
                         <button
                           onClick={() => setShowModal(true)}
