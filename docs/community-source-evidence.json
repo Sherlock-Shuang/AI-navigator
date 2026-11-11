@@ -1,0 +1,477 @@
+{
+  "collectedAt": "2026-11-08T11:36:37Z",
+  "method": "Read public original posts and public metadata; write concise Chinese summaries, preserve attribution and timestamps, do not import votes.",
+  "sources": [
+    {
+      "id": "v2ex-1180155",
+      "sourceTitle": "Cursor AI 编程心得",
+      "author": "ZoBoat",
+      "publishedAt": "2025-12-20T16:51:17+08:00",
+      "publishedDatePrecision": "second",
+      "url": "https://www.v2ex.com/t/1180155",
+      "dateEvidence": {
+        "htmlPublishedTime": "2025-12-20T08:51:17Z",
+        "topicTimeTitle": "2025-12-20 16:51:17 +08:00",
+        "replyTimeTitle": "2025-12-20 18:21:36 +08:00"
+      },
+      "topic": "实践复盘",
+      "tags": [
+        "Cursor",
+        "协作流程",
+        "项目规则"
+      ],
+      "mainPostReadCompletely": true,
+      "replyReadCompletely": true,
+      "dateVerification": "公开原帖HTML的article:published_time和发帖时间title属性交叉核对；回复日期来自对应r_锚点内时间title属性。",
+      "platform": "V2EX",
+      "replies": [
+        {
+          "author": "shmilypeter",
+          "publishedAt": "2025-12-20T18:21:36+08:00",
+          "url": "https://www.v2ex.com/t/1180155#r_17119394"
+        }
+      ]
+    },
+    {
+      "id": "v2ex-1188070",
+      "sourceTitle": "[ AI 与编程] 近半年工作使用 Cursor 的感受",
+      "author": "lenglengyuchen",
+      "publishedAt": "2026-01-24T17:10:02+08:00",
+      "publishedDatePrecision": "second",
+      "url": "https://www.v2ex.com/t/1188070",
+      "dateEvidence": {
+        "htmlPublishedTime": "2026-01-24T09:10:02Z",
+        "topicTimeTitle": "2026-01-24 17:10:02 +08:00",
+        "replyTimeTitle": "2026-01-24 18:20:05 +08:00"
+      },
+      "topic": "实践复盘",
+      "tags": [
+        "Cursor",
+        "代码补全",
+        "代码审查"
+      ],
+      "mainPostReadCompletely": true,
+      "replyReadCompletely": true,
+      "dateVerification": "公开原帖HTML的article:published_time和发帖时间title属性交叉核对；回复日期来自对应r_锚点内时间title属性。",
+      "platform": "V2EX",
+      "replies": [
+        {
+          "author": "murmur",
+          "publishedAt": "2026-01-24T18:20:05+08:00",
+          "url": "https://www.v2ex.com/t/1188070#r_17249636"
+        }
+      ]
+    },
+    {
+      "id": "v2ex-1210849",
+      "sourceTitle": "AI 编程工具大家实际使用中哪个综合下来最好用？",
+      "author": "fireeeeee",
+      "publishedAt": "2026-05-07T14:11:17+08:00",
+      "publishedDatePrecision": "second",
+      "url": "https://www.v2ex.com/t/1210849",
+      "dateEvidence": {
+        "htmlPublishedTime": "2026-05-07T06:11:17Z",
+        "topicTimeTitle": "2026-05-07 14:11:17 +08:00",
+        "replyTimeTitle": "2026-05-07 14:32:40 +08:00"
+      },
+      "topic": "工具问答",
+      "tags": [
+        "编程助手",
+        "工具选择",
+        "工作流"
+      ],
+      "editorialNote": "摘要最后一句为编辑性阅读建议；原帖是征询体验的问题，并未给出统一测评结论。",
+      "mainPostReadCompletely": true,
+      "replyReadCompletely": true,
+      "dateVerification": "公开原帖HTML的article:published_time和发帖时间title属性交叉核对；回复日期来自对应r_锚点内时间title属性。",
+      "platform": "V2EX",
+      "replies": [
+        {
+          "author": "P233",
+          "publishedAt": "2026-05-07T14:32:40+08:00",
+          "url": "https://www.v2ex.com/t/1210849#r_17607477"
+        }
+      ]
+    },
+    {
+      "id": "v2ex-1181949",
+      "sourceTitle": "使用 Cursor 进行 AI 编程的年度总结",
+      "author": "glumess",
+      "publishedAt": "2025-12-29T16:25:55+08:00",
+      "publishedDatePrecision": "second",
+      "url": "https://www.v2ex.com/t/1181949",
+      "dateEvidence": {
+        "htmlPublishedTime": "2025-12-29T08:25:55Z",
+        "topicTimeTitle": "2025-12-29 16:25:55 +08:00",
+        "replyTimeTitle": "2025-12-31 10:10:30 +08:00"
+      },
+      "topic": "实践复盘",
+      "tags": [
+        "Cursor",
+        "设计记录",
+        "开发复盘"
+      ],
+      "mainPostReadCompletely": true,
+      "replyReadCompletely": true,
+      "dateVerification": "公开原帖HTML的article:published_time和发帖时间title属性交叉核对；回复日期来自对应r_锚点内时间title属性。",
+      "platform": "V2EX",
+      "replies": [
+        {
+          "author": "axisray",
+          "publishedAt": "2025-12-31T10:10:30+08:00",
+          "url": "https://www.v2ex.com/t/1181949#r_17158235"
+        }
+      ]
+    },
+    {
+      "id": "reddit-1l9mrb6",
+      "sourceTitle": "What is your full literature review workflow?",
+      "author": "userQKD",
+      "createdUtc": 1749735618,
+      "url": "https://www.reddit.com/r/notebooklm/comments/1l9mrb6/what_is_your_full_literature_review_workflow/",
+      "platform": "Reddit",
+      "community": "r/notebooklm",
+      "contentType": "外部讨论摘要",
+      "sourceKind": "question",
+      "publishedAt": "2025-06-12T13:40:18Z",
+      "publishedDate": "2025-06-12",
+      "dateTimezone": "Asia/Shanghai",
+      "verifiedAt": "2026-11-08",
+      "verification": {
+        "method": "原帖公开正文与 Reddit JSON 的 author、created_utc 字段核对",
+        "metadataUrl": "https://www.reddit.com/r/notebooklm/comments/1l9mrb6.json?raw_json=1",
+        "textRead": "full original post"
+      },
+      "replies": [
+        {
+          "id": "mxdshqw",
+          "author": "Suitable_Pie_Drama",
+          "createdUtc": 1749737003,
+          "url": "https://www.reddit.com/r/notebooklm/comments/1l9mrb6/what_is_your_full_literature_review_workflow/mxdshqw/",
+          "publishedAt": "2025-06-12T14:03:23Z",
+          "publishedDate": "2025-06-12",
+          "dateTimezone": "Asia/Shanghai",
+          "kind": "原帖回复摘要",
+          "verificationUrl": "https://www.reddit.com/api/info.json?id=t1_mxdshqw&raw_json=1"
+        }
+      ],
+      "topic": "工具问答",
+      "tags": [
+        "NotebookLM",
+        "Zotero",
+        "文献综述"
+      ]
+    },
+    {
+      "id": "reddit-1lj3yg3",
+      "sourceTitle": "Master's Thesis & NotebookLM: Looking for Workflow Tips",
+      "author": "Sorry_Fan_2056",
+      "createdUtc": 1750746855,
+      "url": "https://www.reddit.com/r/notebooklm/comments/1lj3yg3/masters_thesis_notebooklm_looking_for_workflow/",
+      "platform": "Reddit",
+      "community": "r/notebooklm",
+      "contentType": "外部讨论摘要",
+      "sourceKind": "question",
+      "publishedAt": "2025-06-24T06:34:15Z",
+      "publishedDate": "2025-06-24",
+      "dateTimezone": "Asia/Shanghai",
+      "verifiedAt": "2026-11-08",
+      "verification": {
+        "method": "原帖公开正文与 Reddit JSON 的 author、created_utc 字段核对",
+        "metadataUrl": "https://www.reddit.com/r/notebooklm/comments/1lj3yg3.json?raw_json=1",
+        "textRead": "full original post"
+      },
+      "replies": [
+        {
+          "id": "mzhw952",
+          "author": "Youzernayme",
+          "createdUtc": 1750765913,
+          "url": "https://www.reddit.com/r/notebooklm/comments/1lj3yg3/masters_thesis_notebooklm_looking_for_workflow/mzhw952/",
+          "publishedAt": "2025-06-24T11:51:53Z",
+          "publishedDate": "2025-06-24",
+          "dateTimezone": "Asia/Shanghai",
+          "kind": "原帖回复摘要",
+          "verificationUrl": "https://www.reddit.com/api/info.json?id=t1_mzhw952&raw_json=1"
+        }
+      ],
+      "topic": "工具问答",
+      "tags": [
+        "NotebookLM",
+        "论文阅读"
+      ]
+    },
+    {
+      "id": "reddit-1o35iiz",
+      "sourceTitle": "Best practices to make NotebookLM cite the sources in reports",
+      "author": "AnimusAstralis",
+      "createdUtc": 1760113302,
+      "url": "https://www.reddit.com/r/notebooklm/comments/1o35iiz/best_practices_to_make_notebooklm_cite_the/",
+      "platform": "Reddit",
+      "community": "r/notebooklm",
+      "contentType": "外部讨论摘要",
+      "sourceKind": "question",
+      "publishedAt": "2025-10-10T16:21:42Z",
+      "publishedDate": "2025-10-11",
+      "dateTimezone": "Asia/Shanghai",
+      "verifiedAt": "2026-11-08",
+      "verification": {
+        "method": "原帖公开正文与 Reddit JSON 的 author、created_utc 字段核对",
+        "metadataUrl": "https://www.reddit.com/r/notebooklm/comments/1o35iiz.json?raw_json=1",
+        "textRead": "full original post"
+      },
+      "replies": [
+        {
+          "id": "niswwpx",
+          "author": "AnimusAstralis",
+          "createdUtc": 1760115820,
+          "url": "https://www.reddit.com/r/notebooklm/comments/1o35iiz/best_practices_to_make_notebooklm_cite_the/niswwpx/",
+          "publishedAt": "2025-10-10T17:03:40Z",
+          "publishedDate": "2025-10-11",
+          "dateTimezone": "Asia/Shanghai",
+          "kind": "原作者补充摘要",
+          "verificationUrl": "https://www.reddit.com/api/info.json?id=t1_niswwpx&raw_json=1"
+        }
+      ],
+      "topic": "工具问答",
+      "tags": [
+        "NotebookLM",
+        "引用核对"
+      ]
+    },
+    {
+      "id": "reddit-1qy9sjp",
+      "sourceTitle": "Using AI for a literature review?",
+      "author": "Healthy_Try4444",
+      "createdUtc": 1770457608,
+      "url": "https://www.reddit.com/r/notebooklm/comments/1qy9sjp/using_ai_for_a_literature_review/",
+      "platform": "Reddit",
+      "community": "r/notebooklm",
+      "contentType": "外部讨论摘要",
+      "sourceKind": "question",
+      "publishedAt": "2026-02-07T09:46:48Z",
+      "publishedDate": "2026-02-07",
+      "dateTimezone": "Asia/Shanghai",
+      "verifiedAt": "2026-11-08",
+      "verification": {
+        "method": "原帖公开正文与 Reddit JSON 的 author、created_utc 字段核对",
+        "metadataUrl": "https://www.reddit.com/r/notebooklm/comments/1qy9sjp.json?raw_json=1",
+        "textRead": "full original post"
+      },
+      "replies": [
+        {
+          "id": "o42mdnd",
+          "author": "Pasid3nd3",
+          "createdUtc": 1770468897,
+          "url": "https://www.reddit.com/r/notebooklm/comments/1qy9sjp/using_ai_for_a_literature_review/o42mdnd/",
+          "publishedAt": "2026-02-07T12:54:57Z",
+          "publishedDate": "2026-02-07",
+          "dateTimezone": "Asia/Shanghai",
+          "kind": "原帖回复摘要",
+          "verificationUrl": "https://www.reddit.com/api/info.json?id=t1_o42mdnd&raw_json=1"
+        }
+      ],
+      "topic": "工具问答",
+      "tags": [
+        "文献综述",
+        "科研工作流"
+      ]
+    },
+    {
+      "id": "v2ex-1255354",
+      "sourceTitle": "纯外行做了一个微信割草小游戏,分享一些经验之谈",
+      "author": "DearFox",
+      "publishedAt": "2026-11-08T08:14:59Z",
+      "url": "https://www.v2ex.com/t/1255354",
+      "topic": "实践复盘",
+      "tags": [
+        "AI 编程",
+        "小游戏",
+        "视觉设计"
+      ],
+      "platform": "V2EX",
+      "replies": [],
+      "dateVerification": "公开 V2EX API created Unix 时间戳 1794125699；原帖完整正文读取。"
+    },
+    {
+      "id": "csdn-145549690",
+      "sourceTitle": "测试使用Cursor中的deepseek-V3大模型辅助开发一个小程序",
+      "author": "ziwend",
+      "url": "https://blog.csdn.net/u010438035/article/details/145549690",
+      "publishedAt": "2025-02-18T11:40:32+08:00",
+      "topic": "实践复盘",
+      "tags": [
+        "Cursor",
+        "DeepSeek",
+        "小程序"
+      ],
+      "dateEvidence": "原作者公开博客列表 https://blog.csdn.net/u010438035 对应条目显示2025-02-18 11:40:32；文章正文标题/作者与该链接一致。文章页顶部当前是最新推荐文章时间，未当作原始发布时间。",
+      "mainPostReadCompletely": true,
+      "platform": "CSDN",
+      "collectedAt": "2026-11-11T05:21:00Z",
+      "replies": []
+    },
+    {
+      "id": "csdn-144829518",
+      "sourceTitle": "试用ChatGPT的copilot编写一个程序从笔记本电脑获取语音输入和图像输入并调用开源大模型进行解析",
+      "author": "ziwend",
+      "url": "https://blog.csdn.net/u010438035/article/details/144829518",
+      "publishedAt": "2024-12-31T10:56:55+08:00",
+      "topic": "实践复盘",
+      "tags": [
+        "ChatGPT",
+        "Ollama",
+        "语音助手"
+      ],
+      "dateEvidence": "原作者公开博客列表 https://blog.csdn.net/u010438035 对应条目显示2024-12-31 10:56:55；文章页顶部当前显示最新推荐文章时间，未将其视作原发时间。",
+      "mainPostReadCompletely": true,
+      "platform": "CSDN",
+      "collectedAt": "2026-11-11T05:21:00Z",
+      "replies": []
+    },
+    {
+      "id": "csdn-144606736",
+      "sourceTitle": "tts语音合成相关开源项目试用对比",
+      "author": "ziwend",
+      "url": "https://blog.csdn.net/u010438035/article/details/144606736",
+      "publishedAt": "2024-12-23T16:35:15+08:00",
+      "topic": "实践复盘",
+      "tags": [
+        "ChatTTS",
+        "CosyVoice",
+        "语音合成"
+      ],
+      "dateEvidence": "原作者公开博客列表 https://blog.csdn.net/u010438035 对应条目显示2024-12-23 16:35:15；文章页另显示2025-01-14 17:06:21，与列表不同，保留列表初始发布记录，不冒充当前产品测试。",
+      "mainPostReadCompletely": true,
+      "platform": "CSDN",
+      "collectedAt": "2026-11-11T05:21:00Z",
+      "replies": []
+    },
+    {
+      "id": "csdn-146515197",
+      "sourceTitle": "35-dify案例分享-手把手教你打造 Markdown 转 Word 自定义智能体",
+      "platform": "CSDN",
+      "author": "海虎哥AI编程",
+      "url": "https://blog.csdn.net/wwwzhouhui/article/details/146515197",
+      "publishedAt": "2025-03-26T08:00:00+08:00",
+      "collectedAt": "2026-11-11T05:21:00Z",
+      "topic": "实践复盘",
+      "tags": [
+        "Dify",
+        "Word",
+        "文件导出"
+      ],
+      "replies": [],
+      "mainPostReadCompletely": true,
+      "dateEvidence": {
+        "publication": "Original HTML schema.org datePublished explicitly 2025-03-26T08:00:00+08:00; visible latest recommendation date is not original date.",
+        "author": "Original HTML var nickName = 海虎哥AI编程; author profile matches.",
+        "content": "Read original article paragraphs on plugin creation, failed file download, container storage inspection, separate FastAPI HTTP conversion and three-node workflow.",
+        "snapshot": "/tmp/csdn-146515197.html",
+        "limitations": "Summarized accessed article text only; no source comments or engagement imported."
+      }
+    },
+    {
+      "id": "csdn-151098375",
+      "sourceTitle": "第五章 Dify社区版使用篇-工具-自定义",
+      "platform": "CSDN",
+      "author": "瑞瑞绮绮",
+      "url": "https://blog.csdn.net/ldp19850914/article/details/151098375",
+      "publishedAt": "2025-09-02T23:00:00+08:00",
+      "collectedAt": "2026-11-11T05:21:00Z",
+      "topic": "资源分享",
+      "tags": [
+        "Dify",
+        "自定义工具",
+        "OpenAPI"
+      ],
+      "replies": [],
+      "mainPostReadCompletely": true,
+      "dateEvidence": {
+        "publication": "Original HTML schema.org datePublished explicitly 2025-09-02T23:00:00+08:00; visible latest recommendation date is not original date.",
+        "author": "Original HTML var nickName = 瑞瑞绮绮; visible article attribution matches.",
+        "content": "Read full publicly returned body, OpenAPI structure explanation and Dify create/test/save sequence with Amap city parameter and API key.",
+        "snapshot": "/tmp/csdn-151098375.html",
+        "license": "Page states CC BY-SA 4.0; provided text is a brief original editorial summary with attribution and original URL.",
+        "limitations": "No source comments or engagement imported."
+      }
+    },
+    {
+      "id": "csdn-149690284",
+      "sourceTitle": "01-开源版COZE-字节 Coze Studio 重磅开源！保姆级本地安装教程，手把手带你体验",
+      "platform": "CSDN",
+      "author": "海虎哥AI编程",
+      "url": "https://blog.csdn.net/wwwzhouhui/article/details/149690284",
+      "publishedAt": "2025-07-27T14:55:16+08:00",
+      "collectedAt": "2026-11-11T05:21:00Z",
+      "topic": "实践复盘",
+      "tags": [
+        "Coze",
+        "本地部署",
+        "排错"
+      ],
+      "replies": [],
+      "mainPostReadCompletely": true,
+      "dateEvidence": {
+        "publication": "Author public Coze category list directly links this article and gives 原创 2025-07-27 14:55:16; article currently shows 最新推荐文章 date so category original used.",
+        "publicationEvidenceUrl": "https://blog.csdn.net/wwwzhouhui/category_13015050.html",
+        "author": "Visible original article author and matching category author 海虎哥AI编程.",
+        "content": "Read original article model configuration/Endpoint ID, WSL startup, Windows scripts issue and MySQL/MinIO port conflicts.",
+        "limitations": "Describes author historical July2025 setup, not a claim that current Coze installation has the same limitations. Direct raw HTML returned521; article and category were readable via web tool. No source comments or engagement imported."
+      }
+    }
+  ],
+  "searchLog": [
+    {
+      "site": "V2EX",
+      "query": "AI 工具/论文/NotebookLM；Cursor AI 编程体验",
+      "webSearchCount": 2,
+      "opencliCalls": [
+        {
+          "command": "v2ex node create",
+          "purpose": "Find public creator discussions",
+          "count": 1
+        },
+        {
+          "command": "v2ex topic 1255354",
+          "purpose": "Read the selected game-creation post",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "site": "Reddit",
+      "query": "NotebookLM workflow citations sources research",
+      "webSearchCount": 1,
+      "directPostsRead": 4
+    },
+    {
+      "site": "Hacker News",
+      "query": "Show HN AI learning",
+      "opencliSearchCount": 1,
+      "selected": 0
+    },
+    {
+      "date": "2026-11-11",
+      "site": "CSDN",
+      "queries": [
+        "site:blog.csdn.net Cursor DeepSeek NotebookLM 使用 体验 实测",
+        "site:blog.csdn.net Dify Coze ComfyUI 实践 工作流 使用"
+      ],
+      "webSearchCount": 2,
+      "selected": 6,
+      "status": "completed",
+      "method": "OpenCLI live registry has no CSDN adapter; read public original articles and original metadata or author publication list.",
+      "excluded": [
+        {
+          "url": "https://blog.csdn.net/sheepForTest/article/details/163329066",
+          "reason": "Only paid preview publicly visible, not included."
+        },
+        {
+          "url": "https://blog.csdn.net/wwwzhouhui/article/details/147103847",
+          "reason": "No verified original date yet; enough other sources, not included."
+        }
+      ]
+    }
+  ],
+  "lastCollectedAt": "2026-11-11T05:21:00Z"
+}

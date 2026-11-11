@@ -17,7 +17,7 @@ export default function CornerAI() {
     if (!content || loading) return
     setError('')
     setLoading(true)
-    const next = [...messages, { role: 'user', content }]
+    const next: Msg[] = [...messages, { role: 'user', content }]
     setMessages(next)
     setInput('')
     try {

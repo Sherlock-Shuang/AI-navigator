@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { supabase } from '@/lib/supabase'
+import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import { useAuthStore } from '@/stores/auth'
 
 export default function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -9,6 +9,7 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
   const setLoading = useAuthStore((state) => state.setLoading)
 
   useEffect(() => {
+    if (!isSupabaseConfigured) { setLoading(false); return }
     // 获取当前会话
     const getInitialSession = async () => {
       try {

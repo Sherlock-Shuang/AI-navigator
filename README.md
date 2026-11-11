@@ -1,113 +1,41 @@
-# AI Navigator — 更新与部署说明
+# AI Navigator
 
-> 面向后续迭代维护的快速指引。包含本地开发、数据更新、教程页、部署与常见问题。
+校园AI工具导航、任务实践与社群原型。公开页面不包含比赛或答辩资料。
 
-## 项目概览
-- 技术栈：Next.js 16、React 19、Tailwind CSS、Lucide React、Framer Motion
-- 主要文件：
-  - 工具数据：`ai-navigator/src/data/tools.ts`
-  - 页面与交互：`ai-navigator/src/app/page.tsx`
-  - 教程子页：`ai-navigator/src/app/guide/page.tsx`
-  - 部署配置：`ai-navigator/vercel.json`
+## 使用
 
-## 本地开发
-- 安装依赖：
-```bash
-npm install
-```
-- 启动开发：
-```bash
+```sh
+npm ci
 npm run dev
-# 打开 http://localhost:3000
 ```
-- 构建与本地生产运行：
-```bash
+
+Node.js 24。社群默认展示历史讨论，配置 Supabase 后可切换到线上讨论；实践记录始终保存在浏览器，可导出 CSV。
+
+- `/`：98项工具目录与搜索。
+- `/practice`：4条实践路径、可解释任务推荐、步骤和成果记录、导出、社群分享草稿。
+- `/catalog`：来源与核查日期，超过30天提示待更新。
+- `/community`：本地体验或邮箱登录后的线上讨论；线上支持举报登记。
+
+### 社群本地演示
+
+未配置 Supabase 时，社群默认展示 76 条模拟历史帖子和 152 条回复，覆盖 2026 年 3—6 月，四个讨论板块各 19 条。支持搜索、月份筛选、点赞排序和每页 10 条的分页浏览；点赞、回复与新发帖仅存于当前浏览器。已配置 Supabase 时可切换至独立的模拟历史区，示例不会写入线上数据库。
+
+模拟内容位于 `src/data/community-demo.ts`，不代表真实聊天或历史运营证据。旧版 `navigator-community-v1` 记录会在首次操作时迁入 `navigator-community-v2`，原存储键保留；损坏数据不会自动覆盖。页面不展示来源标签和无关介绍；代码与维护文档保留数据来源。Hust AI Builders 保持独立社群定位，不合并其成员、活动或成果。
+
+另收录 15 篇来自 CSDN、V2EX 和 Reddit 的公开内容摘要、8 条原评论摘读，附作者、原始日期与原文链接。来源清单见 `docs/社区内容来源.md`；数据独立于原有演示记录，原站点赞数不计入本站。
+
+推荐分数来自任务适用性、资料时效和关键词，不是质量评级或用户画像。工具的价格、地区可用性以官网为准。
+
+## 开发验证
+
+```sh
+npm test
+npm run check:catalog
 npm run build
-npm run start
 ```
 
-## 代码结构（关键位置）
-- 工具数据源 `TOOLS_DATA` 与类型 `Category`：`ai-navigator/src/data/tools.ts`
-- 分类中文映射 `categoryLabels` 与筛选/排序：`ai-navigator/src/app/page.tsx`
-- Wifi 图标触发“网络连接诊断”弹窗：`ai-navigator/src/app/page.tsx`
-- 顶部“无法访问？查看解决方案”入口：`ai-navigator/src/app/page.tsx`
-- 教程子页面路由（如需站内页）：`ai-navigator/src/app/guide/page.tsx`
+工具数据：`src/data/tools.ts`。任务映射：`src/data/practice.ts`。
+所有标记“官方资料已核查”的条目必须有来源和核查日期；禁止仅修改日期假装重新核查。
 
-## 数据更新指南
-### A. 添加或编辑工具（增量更新）
-- 打开 `ai-navigator/src/data/tools.ts`
-- 在 `TOOLS_DATA` 数组中新增/修改一项，字段示例：
-```ts
-{ id: "example", name: "示例工具", desc: "一句中文简介。", category: "Chat", url: "https://example.com", tags: ["Freemium", "Proxy"] }
-```
-- 字段说明：
-  - `category` 必须属于 15 类之一：`Search | Agent | Chat | Learning | Coding | Video | Image | Music | Dubbing | DigitalHuman | Model3D | Job | Office | Creation | Efficiency`
-  - `tags` 支持中英双写：`免费/Free`、`付费/Paid`、`基础免费/Freemium`、`代理/Proxy`、`国产/Domestic`（页面会自动映射中文徽章与颜色）
-  - 当包含 `代理/Proxy` 时，页面会隐藏“代理”文本标签，仅在卡片右上角显示可点击的 `Wifi` 图标触发“网络连接诊断”弹窗。
-
-### B. 新增类别（增量更新）
-1. 在 `ai-navigator/src/data/tools.ts` 顶部的 `export type Category` 联合类型中加入新分类标识（英文）。
-2. 在 `ai-navigator/src/app/page.tsx` 的 `categoryLabels` 中为新分类添加中文展示名称。
-3. 如需让新分类的热门工具优先显示，可在 `ai-navigator/src/app/page.tsx` 的热度排序 `popularity` 映射中新增对应 `id` 的权重（分值越高越靠前）。
-4. 运行 `npm run build` 验证筛选与排序表现是否符合预期。
-
-### C. 热度排序（可选）
-- 位置：`ai-navigator/src/app/page.tsx`（在筛选后进行 `.sort`）
-- 规则：先按 `popularity[id]` 从高到低排序，再按名称字典序作为次序。
-- 用途：让 ChatGPT、Claude、Midjourney 等核心工具置顶展示。
-
-## 网络排查入口与安全做法
-- 顶部入口：Header 右侧的“无法访问？查看解决方案”链接（新开页）
-- 弹窗入口：点击卡片右上角 `Wifi` 图标后，在弹窗内的教程链接（新开页）
-- 外部链接推荐：将文档放在飞书/Notion/网盘（如 `https://ccn3midetoxm.feishu.cn/wiki/VgJyw9bdQiTkjQk4nNOcA1kCnhN`），页面仅提供跳转，避免在站内放置含敏感词的 PDF。
-
-## 部署与上线
-### 方式 A：GitHub 自动部署（推荐）
-1. 仓库：`https://github.com/Sherlock-Shuang/AI-navigator`
-2. 在 Vercel Dashboard 创建项目并关联该仓库（Framework 选择 Next.js）
-3. 将 Production Branch 设置为 `master`
-4. 每次 `git push` 到 `master`：
-   - 自动生成预览部署（其他分支）和生产部署（master）
-   - 生产域名指向最新部署
-
-### 方式 B：命令行手动部署
-- 先登录并链接：
-```bash
-npx vercel login
-npx vercel link
-```
-- 触发生产部署：
-```bash
-npx vercel --prod --yes
-```
-- 部署成功后，命令行会输出生产域名（例如：`https://ai-navigator-xxxxx.vercel.app`）
-
-### 自定义域名（可选）
-- 在 Vercel 项目 Settings → Domains 添加你的自有域名并指向生产部署。
-
-## 常见问题
-- 404: NOT_FOUND（含 `sin1::...`）
-  - 含数据中心标识的 404 是 Vercel 路由器级错误，通常是“域名未绑定到有效部署”或“预览域过期”。确保存在最新生产部署并正确绑定域名。
-- `net::ERR_ABORTED`
-  - 多为网络层或 CDN/证书传播问题。尝试无痕模式、清缓存或更换网络；等待数分钟再试。
-- 多区域函数限制
-  - Hobby 计划不支持多区域函数部署。确保 `vercel.json` 不设置 `regions: ["all"]` 等触发多区域的配置。
-
-## 版本与依赖
-- Next.js：`16.0.7`
-- React：`19.2.0`
-- 其他：`framer-motion`、`lucide-react`、`tailwindcss`
-
-## 迭代流程建议
-1. 本地开发与自测：更新 `src/data/tools.ts` / 新分类类型 / `categoryLabels` → `npm run dev`
-2. 代码检查与构建：`npm run build`
-3. 提交与推送：
-```bash
-git add .
-git commit -m "更新工具数据/教程页"
-git push
-```
-4. 部署与验证：等待 Vercel 完成构建 → 使用生产域名验证页面与新路由（如 `/guide`）。
-
----
-如需我将 `/guide` 填充具体内容或更改为外部教程链接，请提供目标文案或链接地址。
+部署与数据库配置见 `docs/部署.md`。
+当前没有完成云端邮件、多人联调或真实用户效果评估；本地测试不是线上验收。

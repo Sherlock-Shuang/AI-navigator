@@ -26,7 +26,7 @@ create table if not exists public.posts (
 alter table public.posts enable row level security;
 
 create policy "Public posts are viewable by everyone." on public.posts for select using (true);
-create policy "Authenticated users can insert posts." on public.posts for insert with check (auth.role() = 'authenticated');
+create policy "Authenticated users can insert posts." on public.posts for insert with check (auth.uid() = user_id);
 create policy "Users can update own posts." on public.posts for update using (auth.uid() = user_id);
 
 -- 3. 自动建档触发器 (确保所有登录方式都能生成 Profiles)

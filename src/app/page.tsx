@@ -10,11 +10,11 @@ import { TOOLS_DATA } from '@/data/tools';
 
 const categoryLabels: Record<Category, string> = {
   Search: 'AI搜索',
-  Agent: '助手',
+  Agent: '智能体 / 工作空间',
   Chat: '对话聊天',
   Learning: '学习/论文',
-  Coding: '编程IDE',
-  Video: '视频生成',
+  Coding: '编程 / 应用生成',
+  Video: '视频生成 / 剪辑',
   Image: '绘画设计',
   Music: '音乐创作',
   Dubbing: 'AI配音',
@@ -42,37 +42,20 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<'全部' | Category>("全部");
   const [showModal, setShowModal] = useState(false);
 
-  const popularity: Record<string, number> = {
-    chatgpt: 100,
-    claude: 95,
-    midjourney: 90,
-    deepseek: 88,
-    cursor: 85,
-    gemini: 84,
-    runway: 80,
-    flux: 78,
-    suno: 76,
-    udio: 75,
-    perplexity: 74,
-    kimi: 72,
-    doubao: 71,
-    jimeng: 70,
-  };
+  const [reviewedOnly, setReviewedOnly] = useState(false);
 
   const filteredTools = TOOLS_DATA.filter(tool => {
     const matchesSearch = tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         tool.desc.toLowerCase().includes(searchTerm.toLowerCase());
+                         tool.desc.toLowerCase().includes(searchTerm.toLowerCase()) || tool.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesCategory = selectedCategory === "全部" || tool.category === selectedCategory;
-    return matchesSearch && matchesCategory;
+    return matchesSearch && matchesCategory && (!reviewedOnly || !!tool.checkedAt);
   }).sort((a, b) => {
-    const sa = popularity[a.id] ?? 0;
-    const sb = popularity[b.id] ?? 0;
-    if (sa !== sb) return sb - sa;
+    if (Boolean(a.checkedAt) !== Boolean(b.checkedAt)) return a.checkedAt ? -1 : 1;
     return a.name.localeCompare(b.name);
   });
 
   const handleVisitTool = (url: string) => {
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -80,15 +63,15 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex flex-wrap items-center justify-between gap-3 py-4">
             <h1 className="text-2xl font-bold text-teal-600">AI Navigator</h1>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <a
                 href="/community"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-600 rounded-lg hover:bg-teal-100 transition-colors"
               >
                 <MessageSquare className="w-4 h-4" />
-                社区论坛
+                实践社群
               </a>
               <a
                 href="https://ccn3midetoxm.feishu.cn/wiki/VgJyw9bdQiTkjQk4nNOcA1kCnhN"
@@ -114,6 +97,7 @@ export default function Home() {
         </div>
       </header>
 
+      <section className="max-w-7xl mx-auto px-6 pt-12 pb-4 text-slate-800"><p className="text-teal-700 tracking-widest text-sm">AI NAVIGATOR / 校园 AI 实践站</p><h2 className="text-4xl sm:text-5xl font-bold leading-tight mt-4">发现好工具，<br/>一起把想法做出来。</h2><p className="text-slate-500 mt-5 max-w-2xl leading-7">从工具导航出发，用任务实践连接同伴。查找适合的 AI 工具，跟随校园实践路径，在社群中分享方法与成果。</p><div className="flex flex-wrap gap-4 mt-6"><a href="/practice" className="bg-teal-700 text-white px-5 py-3 rounded-xl">选择任务与工具 →</a><a href="/community" className="border border-slate-300 px-5 py-3 rounded-xl">进入实践社群</a></div><a href="/catalog" className="inline-block text-teal-700 underline mt-5">查看目录核查记录 →</a><p className="text-xs text-slate-500 mt-6">最近资料更新：2026-11-05 · 每项标注核查状态与来源。核查官方资料不等于付费实测；价格、额度与地区支持以官网为准。</p></section>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar / Filter Bar */}
@@ -160,7 +144,8 @@ export default function Home() {
           </aside>
 
           {/* Main Content - Tool Grid */}
-          <main className="flex-1">
+          <main className="flex-1 min-w-0">
+            <div className="mb-6 bg-white border border-slate-200 rounded-xl p-4 text-slate-700"><p className="font-medium">本轮新增 27 项：从编程智能体到科研与创作</p><p className="text-sm mt-2">补充 Qoder、Kiro、OpenCode、ResearchRabbit、Scite、Higgsfield、Napkin、Make 等工具，并接入任务实践推荐。每项保留官方来源与核查日期。</p><a className="text-teal-700 text-sm underline" href="/catalog">查看更新与来源记录</a><div className="flex flex-wrap justify-between gap-3 mt-4"><span>{filteredTools.length} 项工具</span><label><input type="checkbox" checked={reviewedOnly} onChange={e=>setReviewedOnly(e.target.checked)} className="mr-2"/>仅看已核查官方资料</label></div></div>
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedCategory + searchTerm}
@@ -204,7 +189,8 @@ export default function Home() {
                       )}
                     </div>
                     
-                    <p className="text-slate-600 text-sm mb-4 line-clamp-2">{tool.desc}</p>
+                    <p className="text-slate-600 text-sm mb-4">{tool.desc}</p>
+                    <div className="text-xs text-slate-500 mb-4">{tool.checkedAt ? <><span>资料核查：{tool.checkedAt} · </span><a href={tool.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-teal-700 underline">官方来源</a></> : <span className="text-amber-700">待复核 · 历史收录，使用前请确认官网</span>}</div>
                     
                     <div className="flex items-center justify-between">
                       <div className="flex flex-wrap gap-2">
@@ -311,7 +297,7 @@ export default function Home() {
 
       <footer className="border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
-          <p className="text-slate-400 text-xs">© 2025 AI Navigator</p>
+          <p className="text-slate-400 text-xs">© 2026 AI Navigator</p>
           <a
             href="https://ccn3midetoxm.feishu.cn/wiki/VgJyw9bdQiTkjQk4nNOcA1kCnhN"
             className="inline-flex items-center gap-1 text-slate-400 hover:text-teal-500 text-xs transition-colors"
