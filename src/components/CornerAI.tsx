@@ -41,14 +41,14 @@ export default function CornerAI() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-40 rounded-full bg-teal-500 hover:bg-teal-600 text-white p-3 shadow-lg"
+        className="fixed bottom-20 right-6 z-40 rounded-full bg-teal-500 hover:bg-teal-600 text-white p-3 shadow-lg"
         aria-label="打开内置AI"
       >
         <Bot className="w-5 h-5" />
       </button>
 
       {open && (
-        <div className="fixed bottom-6 right-6 z-50 w-[320px] rounded-xl bg-white border border-slate-200 shadow-xl">
+        <div className="fixed bottom-20 right-6 z-50 w-[320px] rounded-xl bg-white border border-slate-200 shadow-xl">
           <div className="flex items-center justify-between p-3 border-b border-slate-100">
             <div className="flex items-center gap-2 text-slate-800 font-medium">
               <Bot className="w-4 h-4 text-teal-600" />
